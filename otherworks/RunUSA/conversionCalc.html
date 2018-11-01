@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Run USA-Pace Calc</title>
+	<link rel = "stylesheet" href="BootStrapLearning.css">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+	<!--DEFAULT NAV BAR FROM BOOTSTRAP-->
+		
+		
+		<header class = "navbar">
+			<div class = "container">
+				<nav class="navbar navbar-inverse">
+					  <div class="container-fluid">   
+					    <div class="navbar-header">	    	
+					          <a class="navbar-brand" href="index.html"></a>		
+					    </div>
+
+					    <!-- Collect the nav links, forms, and other content for toggling -->
+					    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					      <ul class="nav navbar-nav navbar-right">
+					      	<li><a href="aboutUs.html">About Us</a></li>
+					        <li><a href="conversionCalc.html">Pace Calculator</a></li>
+					        <li><a href="runGame.html">Play</a></li>
+						    </li>
+						    <li class="dropdown">
+						        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Photos<span class="caret"></span></a>
+						          <ul class="dropdown-menu">
+						          	<li><a href="nyMarathonPG.html">New York Marathon 2017</a></li>
+						          	<li><a href="foamGlow.html">Foam Glow Run</a></li>
+						          </ul>
+						    </li>
+					        <li class="dropdown">
+						        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Awards<span class="caret"></span></a>
+						          <ul class="dropdown-menu">
+						          	<li><a href="index.html">Home</a></li>
+						          	<li role="separator" class="divider"></li>
+						          	<li><a href="athleteAward.html">Athlete of the Week</a></li>
+						            <li><a href="coachAward.html">Coach of the Week</a></li>						            
+						            <li role="separator" class="divider"></li>
+						            <li><a href="pastAthletes.html">Past Athletes</a></li>
+						            <li><a href="pastCoaches.html">Past Coaches</a></li>
+						          </ul>
+						    </li>
+					      </ul>
+					    </div><!-- /.navbar-collapse -->
+					  </div><!-- /.container-fluid -->
+				</nav>
+			</div>
+		</header>
+<body>
+
+
+
+
+<!-- MAIN CONTENT-->
+<div class="container">
+	<div class = "col-sm-12">
+		<div class = "middle">
+			<form id="paceCalcForm">
+				<h1>Pace Calculator</h1>
+				Please fill all fields for an accurate result<br>
+					<input id = "timeConvH" type = "number"  placeholder="Hours" min="0">
+					<output></output>
+					<input id = "timeConvM" type = "number" placeholder="Min" min="0">
+					<output></output>
+					<input id = "timeConvS" type = "number" placeholder="Sec" min="0"><br>
+					<output></output>
+					<input id = "distanceM" type = "text" placeholder="Distance(Miles)">
+					<hr style="width: 80%;">	
+					<button type="button" id="calculate_btn">Calculate</button>
+									    					
+			</form>
+		</div>
+	</div>
+	
+	<div class="results">
+			<form>
+				<h1>Results</h1><br>
+				<label>Pace per Mile...</label><br>
+				<p id="paceM" style="background-color: #b2b2b2;"/>
+				
+			</form>
+		
+	</div>
+
+</div>
+	
+
+<script type="text/javascript">
+	
+
+	var distanceInput = document.getElementById("distanceM"),
+		hoursInput = document.getElementById("timeConvH"),
+		minutesInput = document.getElementById("timeConvM"),
+		secondsInput = document.getElementById("timeConvS"),
+		calculateBtn = document.getElementById("calculate_btn"),
+		paceMText = document.getElementById("paceM");
+		
+
+	calculateBtn.addEventListener("click", function() {
+		var miles = parseInt(distanceInput.value),
+			hours = parseInt(hoursInput.value),
+			minutes = parseInt(minutesInput.value),
+			seconds = parseInt(secondsInput.value);
+
+		var totalMinutes = hours * 60 + minutes + seconds / 60,
+			pace = totalMinutes / miles,
+			paceMinutes = Math.floor(pace),
+			paceSeconds = Math.round((pace - paceMinutes) * 60);
+
+		if(paceSeconds < 10) {
+			paceSeconds = "0" + paceSeconds;
+		}
+
+		paceM.textContent = "You need to run " + paceMinutes + ":" + paceSeconds + " minutes per mile.";
+	});
+
+</script>
+</body>
+
+
+<!-- FOOTER-->
+<footer>
+	<div class = "container">
+		<nav class="navbar navbar-inverse navbar-fixed-bottom">
+			<div class="container-fluid">   
+			<!-- Collect the nav links, forms, and other content for toggling -->
+					<ul class="nav navbar-nav navbar-left">
+						<div class = "col-sm-12 col-xs-9" style ="color: rgba(0, 153, 255,.6)";">
+						    <li><a href = "mailto: runUSA@runUSA.com">E-Mail Us At: runUSA@runUSA.com</a></li>
+							<li>Or Call: 1-800-555-5555</li>
+							<li>&copy RunUSA 2017. All Rights Reserved.</a></li>
+						</div>
+					</ul>
+			<a href="../../otherworks.php"><button style="width: 50%; height: 50px; font-size: 30px; margin-left: 15%;">Return to Other Works</button></a>
+				<ul class="nav navbar-nav navbar-right">
+					<div class = "col-sm-12 col-xs-9">
+						<div class = "social icons">
+							<a href="http://www.facebook.com" class="fa fa-facebook" ></a>
+							<a href="http://www.twitter.com" class="fa fa-twitter"></a>
+							<a href="http://www.instagram.com" class="fa fa-instagram" ></a>
+						</div>
+					</div>
+				</ul>
+			</div>
+		</div>
+	</nav>	
+</footer>
+
+
+
+<!-- Latest compiled and minified JavaScript FOR BOOTSTRAP -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+</html>

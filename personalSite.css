@@ -1,0 +1,76 @@
+/*Personal Site CSS*/
+
+body{
+	background-image: linear-gradient(rgb(127,127,127), rgb(128,0,0));
+}
+
+.contentSixtyPercent{
+	margin-left: 20%;
+	margin-right: 20%;
+}
+
+.navContainer{
+	display: flex;
+	flex-wrap: nowrap;
+	align-items: center;
+	align-content: center;
+	justify-content: center;
+	height: 150px;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-top: 2%
+}
+
+.rightOfProfilePicture{
+	margin-left: 30%;
+}
+
+.rightOfPreviewPicture{
+	margin-left: 50%;
+}
+
+.hobbies{
+	color: black;
+	margin-left: 20%;
+}
+
+#navButton{
+	border-style: solid;
+	border-color: black;
+	border-radius: 10%;
+	min-height: 60px;
+	min-width: 140px;
+	margin-left: 10px;
+	font-family: 'Roboto Slab', serif;
+	font-size: 22px;
+	color: white;
+	background-color: rgb(128,0,0);
+}
+
+#navbutton:hover{
+	background-color: rgba(128,0,0,.5);
+}
+
+#profilePic{
+	position: absolute;
+	max-width: 15%;
+    height: auto;
+    width: auto;
+    border-radius: 10%;
+}
+
+#waterfallPic{
+	position: absolute;
+	max-width: 15%;
+    height: auto;
+    width: auto;
+    border-radius: 10%;
+    margin-left: 30%;
+}
+
+#previewSites{
+	position: absolute;
+	max-width: 25%;
+	height: auto;
+    width: auto;
+}
